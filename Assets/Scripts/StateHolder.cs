@@ -13,4 +13,6 @@ public class StateHolder : MonoBehaviour
     public Observable<bool> shot = new Observable<bool> { Value = false };
 
     public int direction = 1;
+
+    public Observable<float> health;
 }

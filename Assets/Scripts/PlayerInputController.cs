@@ -36,24 +36,33 @@ public class PlayerInputController : MonoBehaviour
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
+        
+        if (Input.GetButtonDown("Jump"))
+        {
+            _playerMovementController.JumpIfCan();
+        }
 
         if (axisDirection == 0)
         {
             playerStatus.SetValue(PlayerState.Idle);
             return;
         }
+
         playerStatus.SetValue(PlayerState.Walk);
 
+        bool isRun = false;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            boost = _playerMovementController.runBoost;
+            isRun = true;
             playerStatus.SetValue(PlayerState.Run);
         }
-        
+
         if (Mathf.Abs(direction) > 0.01f)
         {
-            _playerMovementController.HorizontalMovement(direction, axisDirection, boost);
+            _playerMovementController.HorizontalMovement(direction, axisDirection, isRun);
         }
+
+        
     }
 
     public enum PlayerState

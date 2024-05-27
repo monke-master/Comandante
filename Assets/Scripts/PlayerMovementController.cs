@@ -6,24 +6,46 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    public float runBoost = 2f;
+    [SerializeField] private float runBoost = 2f;
+    [SerializeField] private float jumpForce = 3f;
     [SerializeField] private AnimationCurve speedCurve;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private float jumpOffset;
+    [SerializeField] private Transform legsColliderTransform;
     
     private Rigidbody2D _rigidbody;
-    private int currentDirection = 1;
+    private int _currentDirection = 1;
+    private bool _isGrounded = false;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public void HorizontalMovement(float direction, float axisDirection, float boost)
+    private void FixedUpdate()
     {
-        if (axisDirection != 0 && axisDirection*currentDirection < 0)
+        Vector3 pos = legsColliderTransform.position;
+        _isGrounded = Physics2D.OverlapCircle(pos, jumpOffset, groundMask);
+    }
+
+    public void HorizontalMovement(float direction, float axisDirection, bool isRun)
+    {
+        float boost = isRun ? runBoost : 1f;
+        if (axisDirection != 0 && axisDirection*_currentDirection < 0)
         {
             transform.Rotate(new Vector2(0, -180));
-            currentDirection *= -1;
+            _currentDirection *= -1;
         }
         _rigidbody.velocity = new Vector2(speedCurve.Evaluate(direction)*speed*boost, _rigidbody.velocity.y);
     }
+    
+    public void JumpIfCan()
+    {
+        Debug.Log(_isGrounded);
+        if (_isGrounded)
+        {
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
+        }
+    }
+
 }

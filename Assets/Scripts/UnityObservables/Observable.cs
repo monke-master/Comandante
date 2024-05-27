@@ -17,11 +17,11 @@ namespace UnityObservables {
     public class Observable<T> : Observable, IObservable<T>, IEquatable<Observable<T>> {
 
         [SerializeField]
-        T value;
+        T value = default(T);
 
         // When the observables value is changed in the inspector or due to an UNDO operation we can compare
         // it to this variable to see if an event should be fired.
-        T prevValue;
+        T prevValue = default(T);
         bool prevValueInitialized = false;
         
         /// <summary>
@@ -45,7 +45,9 @@ namespace UnityObservables {
         public T Value {
             get { return value; }
             set {
-
+                if (EqualityComparer<T>.Default.Equals(value, this.value)) {
+                    return;
+                }
                 prevValue = value;
                 prevValueInitialized = true;
                 var storePrev = this.value;

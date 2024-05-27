@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class PlayerAnimatorController : MonoBehaviour
 {
-    private PlayerInputController _playerInputController;
+    private StateHolder _stateHolder;
     private Animator _animator;
     private String _previousState;
     
     private void Awake()
     {
-        _playerInputController = GetComponent<PlayerInputController>();
+        _stateHolder = GetComponent<StateHolder>();
         _animator = GetComponent<Animator>();
     }
 
     void Start()
     {
-        _playerInputController.playerStatus.OnChanged += OnPlayerStatusChanged;
+        _stateHolder.movementState.OnChanged += OnMovementStateChanged;
+        _stateHolder.shot.OnChanged += OnShot;
     }
 
     // Update is called once per frame
@@ -26,31 +27,33 @@ public class PlayerAnimatorController : MonoBehaviour
         
     }
 
-    private void OnPlayerStatusChanged()
+    private void OnMovementStateChanged()
     {
-        Debug.Log(_playerInputController.playerStatus.Value);
-        var state = _playerInputController.playerStatus.Value;
+        Debug.Log(_stateHolder.movementState.Value);
+        var state = _stateHolder.movementState.Value; 
         _animator.SetBool(_previousState, false);
         switch (state)
         {
-            case PlayerInputController.PlayerState.Walk:
+            case State.Walk:
             {
                 _animator.SetBool("Walk", true);
                 _previousState = "Walk";
                 break;
             }
-            case PlayerInputController.PlayerState.Run:
+            case State.Run:
             {
                 _animator.SetBool("Run", true);
                 _previousState = "Run";
                 break;
             }
-            case PlayerInputController.PlayerState.Shot:
-            {
-                _animator.SetBool("Shot", true);
-                _previousState = "Shot";
-                break;
-            }
+        }
+    }
+
+    private void OnShot()
+    {
+        if (_stateHolder.shot.Value)
+        {
+            _animator.SetTrigger("Shot");
         }
     }
 }

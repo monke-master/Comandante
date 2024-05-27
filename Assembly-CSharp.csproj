@@ -49,6 +49,9 @@
      <Compile Include="Assets\Scripts\UnityObservables\ObservableList.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementController.cs" />
+     <Compile Include="Assets\Scripts\StateHolder.cs" />
+     <Compile Include="Assets\Scripts\State.cs" />
+     <Compile Include="Assets\Scripts\ShotManager.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\UnityObservables" />
      <Folder Include="Assets\Animations\Player" />

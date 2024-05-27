@@ -9,30 +9,24 @@ using UnityObservables;
 
 public class PlayerInputController : MonoBehaviour
 {
-    [System.Serializable]
-    public class ObservableStatus: Observable<PlayerState> {}
-
-    public ObservableStatus playerStatus = new ObservableStatus() {  };
-
     private PlayerMovementController _playerMovementController;
+    private StateHolder _stateHolder;
+    private StateHolder.ObservableState _movementState;
 
     private void Awake()
     {
         _playerMovementController = GetComponent<PlayerMovementController>();
+        _stateHolder = GetComponent<StateHolder>();
+        _movementState = _stateHolder.movementState;
     }
 
     void Start()
     {
-        playerStatus.SetValue(PlayerState.Idle);
+        _movementState.SetValue(State.Idle);
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            playerStatus.SetValue(PlayerState.Shot);
-        }
-
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
@@ -43,35 +37,32 @@ public class PlayerInputController : MonoBehaviour
         }
 
         if (axisDirection == 0)
+        { 
+            _movementState.SetValue(State.Idle);
+        } 
+        else
         {
-            playerStatus.SetValue(PlayerState.Idle);
-            return;
+            _movementState.SetValue(State.Walk);
+
+            bool isRun = false;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                isRun = true;
+                _movementState.SetValue(State.Run);
+            }
+
+            if (Mathf.Abs(direction) > 0.01f)
+            {
+                _playerMovementController.HorizontalMovement(direction, axisDirection, isRun);
+            }
         }
-
-        playerStatus.SetValue(PlayerState.Walk);
-
-        bool isRun = false;
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRun = true;
-            playerStatus.SetValue(PlayerState.Run);
-        }
-
-        if (Mathf.Abs(direction) > 0.01f)
-        {
-            _playerMovementController.HorizontalMovement(direction, axisDirection, isRun);
-        }
-
         
-    }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _stateHolder.shot.SetValue(true);
+            _stateHolder.shot.SetValue(false);
+        }
 
-    public enum PlayerState
-    {
-        Idle = 0, 
-        Walk = 1, 
-        Run = 2,
-        Shot = 3
     }
-    
     
 }

@@ -14,12 +14,13 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private Transform legsColliderTransform;
     
     private Rigidbody2D _rigidbody;
-    private int _currentDirection = 1;
     private bool _isGrounded = false;
+    private StateHolder _stateHolder;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _stateHolder = GetComponent<StateHolder>();
     }
 
     private void FixedUpdate()
@@ -31,10 +32,10 @@ public class PlayerMovementController : MonoBehaviour
     public void HorizontalMovement(float direction, float axisDirection, bool isRun)
     {
         float boost = isRun ? runBoost : 1f;
-        if (axisDirection != 0 && axisDirection*_currentDirection < 0)
+        if (axisDirection != 0 && axisDirection*_stateHolder.direction < 0)
         {
             transform.Rotate(new Vector2(0, -180));
-            _currentDirection *= -1;
+            _stateHolder.direction *= -1;
         }
         _rigidbody.velocity = new Vector2(speedCurve.Evaluate(direction)*speed*boost, _rigidbody.velocity.y);
     }

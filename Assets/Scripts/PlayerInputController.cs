@@ -9,13 +9,13 @@ using UnityObservables;
 
 public class PlayerInputController : MonoBehaviour
 {
-    private PlayerMovementController _playerMovementController;
+    private CharacterMovementController _movementController;
     private StateHolder _stateHolder;
     private StateHolder.ObservableState _movementState;
 
     private void Awake()
     {
-        _playerMovementController = GetComponent<PlayerMovementController>();
+        _movementController = GetComponent<CharacterMovementController>();
         _stateHolder = GetComponent<StateHolder>();
         _movementState = _stateHolder.movementState;
     }
@@ -33,7 +33,7 @@ public class PlayerInputController : MonoBehaviour
         
         if (Input.GetButtonDown("Jump"))
         {
-            _playerMovementController.JumpIfCan();
+            _movementController.JumpIfCan();
         }
 
         if (axisDirection == 0)
@@ -53,7 +53,7 @@ public class PlayerInputController : MonoBehaviour
 
             if (Mathf.Abs(direction) > 0.01f)
             {
-                _playerMovementController.HorizontalMovement(direction, axisDirection, isRun);
+                _movementController.HorizontalMovement(direction, axisDirection, isRun);
             }
         }
         

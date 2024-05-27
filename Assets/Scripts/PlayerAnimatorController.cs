@@ -13,18 +13,8 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         _stateHolder = GetComponent<StateHolder>();
         _animator = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
         _stateHolder.movementState.OnChanged += OnMovementStateChanged;
         _stateHolder.shot.OnChanged += OnShot;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnMovementStateChanged()

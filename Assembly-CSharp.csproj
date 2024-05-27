@@ -41,22 +41,24 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\State.cs" />
      <Compile Include="Assets\Scripts\PlayerInputController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Observable.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableBase.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableEffect.cs" />
+     <Compile Include="Assets\Scripts\StateHolder.cs" />
+     <Compile Include="Assets\Scripts\ShotManager.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Example\ExampleObservable.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableList.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovementController.cs" />
-     <Compile Include="Assets\Scripts\StateHolder.cs" />
-     <Compile Include="Assets\Scripts\State.cs" />
-     <Compile Include="Assets\Scripts\ShotManager.cs" />
+     <Compile Include="Assets\Scripts\CharacterMovementController.cs" />
+     <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\UnityObservables" />
      <Folder Include="Assets\Animations\Player" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Scripts\UnityObservables\Example" />
+     <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites" />
      <Folder Include="Assets\Sprites\Player" />

@@ -8,7 +8,7 @@ public class StateHolder : MonoBehaviour
     [System.Serializable]
     public class ObservableState: Observable<State> {}
 
-    public ObservableState movementState = new ObservableState() {  };
+    public ObservableState movementState = new ObservableState() { Value = State.Idle};
 
     public Observable<bool> shot = new Observable<bool> { Value = false };
 

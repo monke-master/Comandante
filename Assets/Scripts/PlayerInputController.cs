@@ -31,11 +31,9 @@ public class PlayerInputController : MonoBehaviour
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetMouseButton(1))
-        {
-            _stateHolder.movementState.SetValue(State.Aim);
-            return;
-        } 
+      
+
+        
 
 
         if (Input.GetButtonDown("Jump"))
@@ -63,13 +61,25 @@ public class PlayerInputController : MonoBehaviour
                 _movementController.HorizontalMovement(direction, axisDirection, isRun);
             }
         }
+
+
         
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    _stateHolder.shot.SetValue(true);
-        //    _stateHolder.shot.SetValue(false);
-        //}
+
+        if (Input.GetMouseButton(1))
+        {
+            _stateHolder.movementState.SetValue(State.Aim);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+
+            _stateHolder.shot.SetValue(true);
+            _stateHolder.shot.SetValue(false);
+
+        }
 
     }
+
+
     
 }

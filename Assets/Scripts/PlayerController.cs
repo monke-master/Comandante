@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private StateHolder _stateHolder;
+
+    private void Awake()
     {
-        
+        _stateHolder = GetComponent<StateHolder>();
     }
 
-    // Update is called once per frame
+
+    void Start()
+    {
+        _stateHolder.health.OnChangedValues += Health_OnChangedValues;
+    }
+
+    
+
     void Update()
     {
         
     }
+
+
+    private void Health_OnChangedValues(float _, float health)
+    {
+        if (health == 0)
+        {
+            _stateHolder.movementState.SetValue(State.Dead);
+        }
+    }
+
 }

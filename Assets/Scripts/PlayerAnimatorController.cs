@@ -19,7 +19,7 @@ public class PlayerAnimatorController : MonoBehaviour
 
     private void OnMovementStateChanged()
     {
-        Debug.Log(_stateHolder.movementState.Value);
+        // Debug.Log(_stateHolder.movementState.Value);
         var state = _stateHolder.movementState.Value; 
         _animator.SetBool(_previousState, false);
         switch (state)
@@ -52,6 +52,7 @@ public class PlayerAnimatorController : MonoBehaviour
 
     private void OnShot()
     {
+        Debug.Log(_stateHolder.shot.Value);
         if (_stateHolder.shot.Value)
         {
             _animator.SetTrigger("Shot");

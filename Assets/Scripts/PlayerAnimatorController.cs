@@ -36,6 +36,17 @@ public class PlayerAnimatorController : MonoBehaviour
                 _previousState = "Run";
                 break;
             }
+            case State.Dead:
+            {
+                _animator.SetTrigger("Dead");
+                break;
+            }
+            case State.Aim:
+            {
+                _animator.SetBool("Aim", true);
+                _previousState = "Aim";
+                break;
+            }
         }
     }
 

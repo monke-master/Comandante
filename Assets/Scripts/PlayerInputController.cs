@@ -30,7 +30,14 @@ public class PlayerInputController : MonoBehaviour
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
-        
+
+        if (Input.GetMouseButton(1))
+        {
+            _stateHolder.movementState.SetValue(State.Aim);
+            return;
+        } 
+
+
         if (Input.GetButtonDown("Jump"))
         {
             _movementController.JumpIfCan();
@@ -57,11 +64,11 @@ public class PlayerInputController : MonoBehaviour
             }
         }
         
-        if (Input.GetButtonDown("Fire1"))
-        {
-            _stateHolder.shot.SetValue(true);
-            _stateHolder.shot.SetValue(false);
-        }
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    _stateHolder.shot.SetValue(true);
+        //    _stateHolder.shot.SetValue(false);
+        //}
 
     }
     

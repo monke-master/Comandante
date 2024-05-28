@@ -26,11 +26,14 @@ public class EnemyController : MonoBehaviour
         _stateHolder = GetComponent<StateHolder>();
         currentTimeToRevert = 0f;
         currentState = WALK_STATE;
+
         _stateHolder.health.OnChangedValues += (_, health) =>
         {
             if (health <= 0)
             {
-                Destroy(gameObject);
+                _stateHolder.movementState.SetValue(State.Dead);
+                enabled = false;
+                _rigidbody.simulated = false;        
             }
         };
     }

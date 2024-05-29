@@ -30,18 +30,13 @@ public class PlayerInputController : MonoBehaviour
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
-
-      
-
         
-
-
         if (Input.GetButtonDown("Jump"))
         {
             _movementController.JumpIfCan();
         }
 
-        if (axisDirection == 0)
+        if (axisDirection == 0 && _movementState.Value != State.Shot && _movementState.Value != State.Aim)
         { 
             _movementState.SetValue(State.Idle);
         } 
@@ -61,22 +56,20 @@ public class PlayerInputController : MonoBehaviour
                 _movementController.HorizontalMovement(direction, axisDirection, isRun);
             }
         }
-
+        
+        if (Input.GetMouseButton(0))
+        {
+            _stateHolder.movementState.SetValue(State.Shot);
+            return;
+        }
 
         
-
         if (Input.GetMouseButton(1))
         {
             _stateHolder.movementState.SetValue(State.Aim);
         }
 
-        if (Input.GetMouseButton(0))
-        {
-
-            _stateHolder.shot.SetValue(true);
-            _stateHolder.shot.SetValue(false);
-
-        }
+        
 
     }
 

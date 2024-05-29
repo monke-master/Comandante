@@ -48,7 +48,7 @@
      <Compile Include="Assets\Scripts\UnityObservables\ObservableBase.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableEffect.cs" />
      <Compile Include="Assets\Scripts\StateHolder.cs" />
-     <Compile Include="Assets\Scripts\ShotManager.cs" />
+     <Compile Include="Assets\Scripts\AmmoController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Example\ExampleObservable.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableList.cs" />
@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementController.cs" />
+     <Compile Include="Assets\Scripts\UIController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\UnityObservables" />
      <Folder Include="Assets\Animations\Player" />

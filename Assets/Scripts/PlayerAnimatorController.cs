@@ -15,6 +15,10 @@ public class PlayerAnimatorController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _stateHolder.movementState.OnChanged += OnMovementStateChanged;
         _stateHolder.shot.OnChanged += OnShot;
+        _stateHolder.onRecharge += () =>
+        {
+            _animator.SetTrigger("Recharge");
+        };
     }
 
     private void OnMovementStateChanged()

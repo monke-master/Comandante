@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShotManager : MonoBehaviour
+public class AmmoController : MonoBehaviour
 {
 
     [SerializeField] private GameObject bullet;
@@ -19,5 +19,13 @@ public class ShotManager : MonoBehaviour
         var obj = Instantiate(bullet, shotPoint.position, Quaternion.identity);
         var rigidbody = obj.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(bulletSpeed * _stateHolder.direction, shotPoint.position.y);
+
+        _stateHolder.ammoCount.SetValue(_stateHolder.ammoCount.Value - 1);
+    }
+
+    public void OnRechargeCompleted()
+    {
+        _stateHolder.ammoCount.SetValue(StateHolder.MAX_AMMO);
+        _stateHolder.onRechargeCompleted?.Invoke();
     }
 }

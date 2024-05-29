@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityObservables;
 
@@ -15,4 +16,8 @@ public class StateHolder : MonoBehaviour
     public int direction = 1;
 
     public Observable<float> health;
+    public Action onRecharge;
+    public Action onRechargeCompleted;
+    public const int MAX_AMMO = 30;
+    public Observable<int> ammoCount = new Observable<int> { Value = MAX_AMMO };
 }

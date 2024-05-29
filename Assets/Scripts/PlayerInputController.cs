@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.Jobs;
 using UnityEngine;
-using UnityObservables;
 
 
 public class PlayerInputController : MonoBehaviour
@@ -30,6 +24,11 @@ public class PlayerInputController : MonoBehaviour
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
+        
+        if (Input.GetKey(KeyCode.R))
+        {
+            _stateHolder.onRecharge?.Invoke();
+        }
         
         if (Input.GetButtonDown("Jump"))
         {
@@ -59,6 +58,7 @@ public class PlayerInputController : MonoBehaviour
         
         if (Input.GetMouseButton(0))
         {
+            if (_stateHolder.ammoCount.Value == 0) return;
             _stateHolder.movementState.SetValue(State.Shot);
             return;
         }
@@ -68,9 +68,7 @@ public class PlayerInputController : MonoBehaviour
         {
             _stateHolder.movementState.SetValue(State.Aim);
         }
-
         
-
     }
 
 

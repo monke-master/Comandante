@@ -58,17 +58,23 @@
      <Compile Include="Assets\Scripts\Character\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovementController.cs" />
+     <Compile Include="Assets\Scripts\Items\PickableAmmo.cs" />
      <Folder Include="Assets" />
+     <Folder Include="Assets\Sprites\Enemy" />
      <Folder Include="Assets\Scripts\UnityObservables" />
      <Folder Include="Assets\Animations\Player" />
      <Folder Include="Assets\Scripts\Character\Enemy" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Scripts\Character" />
      <Folder Include="Assets\Scripts\UnityObservables\Example" />
+     <Folder Include="Assets\Scripts\Items" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites" />
+     <Folder Include="Assets\Animations\Enemy" />
+     <Folder Include="Assets\Animations\Pickable" />
      <Folder Include="Assets\Sprites\Player" />
+     <Folder Include="Assets\Sprites\Pickable" />
      <Folder Include="Assets\Animations" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

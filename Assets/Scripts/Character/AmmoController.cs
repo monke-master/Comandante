@@ -31,4 +31,9 @@ public class AmmoController : MonoBehaviour
         _stateHolder.ammoCount.SetValue(_stateHolder.ammoCount.Value - availableAmmo);
         _stateHolder.onRechargeCompleted?.Invoke();
     }
+
+    public void AddAmmo(int ammoCount)
+    {
+        _stateHolder.ammoCount.SetValue(_stateHolder.ammoCount.Value + ammoCount);
+    }
 }

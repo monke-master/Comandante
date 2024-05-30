@@ -41,8 +41,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Character\Enemy\TargetController.cs" />
      <Compile Include="Assets\Scripts\Character\State.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerInputController.cs" />
+     <Compile Include="Assets\Scripts\Character\UIController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Observable.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableBase.cs" />
@@ -56,8 +58,6 @@
      <Compile Include="Assets\Scripts\Character\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovementController.cs" />
-     <Compile Include="Assets\Scripts\Character\UIController.cs" />
-     <Compile Include="Assets\Scripts\Character\Enemy\TargetController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts\UnityObservables" />
      <Folder Include="Assets\Animations\Player" />

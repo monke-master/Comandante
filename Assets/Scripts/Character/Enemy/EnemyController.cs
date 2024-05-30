@@ -24,6 +24,14 @@ public class EnemyController : MonoBehaviour
     private float _currentSpeed;
 
     private Transform _target;
+    private bool shooted = false;
+
+    private IEnumerator Shoot()
+    {
+        _stateHolder.movementState.SetValue(State.Shot);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Shoot());
+    }
     
 
     private void Awake()
@@ -32,7 +40,8 @@ public class EnemyController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _stateHolder = GetComponent<StateHolder>();
         currentTimeToRevert = 0f;
-        currentState = WALK_STATE;
+        currentState = IDLE_STATE;
+        
 
         _stateHolder.health.OnChangedValues += (_, health) =>
         {
@@ -47,7 +56,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _stateHolder.movementState.SetValue(State.Walk);
+        _stateHolder.movementState.SetValue(State.Idle);
     }
 
 
@@ -71,6 +80,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_target != null) return;
         if (collision.CompareTag("EnemyStopper"))
         {
             currentState = IDLE_STATE;
@@ -126,10 +136,14 @@ public class EnemyController : MonoBehaviour
         {
             _currentSpeed = 0;
             _stateHolder.movementState.SetValue(State.Aim);
-            _stateHolder.movementState.SetValue(State.Shot);
+            if (!shooted){
+                StartCoroutine(Shoot());
+                shooted = true;
+            }
         }
         else
         {
+            shooted = false;
             _stateHolder.movementState.SetValue(State.Run);
             _currentSpeed = speed * 2;
             _rigidbody.velocity = Vector2.right * (speed * _stateHolder.direction); 

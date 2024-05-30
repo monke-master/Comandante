@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AmmoController : MonoBehaviour
@@ -20,12 +21,14 @@ public class AmmoController : MonoBehaviour
         var rigidbody = obj.GetComponent<Rigidbody2D>();
         rigidbody.velocity = new Vector2(bulletSpeed * _stateHolder.direction, shotPoint.position.y);
 
-        _stateHolder.ammoCount.SetValue(_stateHolder.ammoCount.Value - 1);
+        _stateHolder.clipAmmo.SetValue(_stateHolder.clipAmmo.Value - 1);
     }
 
     public void OnRechargeCompleted()
     {
-        _stateHolder.ammoCount.SetValue(StateHolder.MAX_AMMO);
+        var availableAmmo = Math.Min(StateHolder.CLIP_CAPACITY, _stateHolder.ammoCount.Value);
+        _stateHolder.clipAmmo.SetValue(availableAmmo);
+        _stateHolder.ammoCount.SetValue(_stateHolder.ammoCount.Value - availableAmmo);
         _stateHolder.onRechargeCompleted?.Invoke();
     }
 }

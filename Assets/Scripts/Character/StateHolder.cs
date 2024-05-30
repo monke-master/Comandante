@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityObservables;
 
 public class StateHolder : MonoBehaviour
@@ -18,6 +19,8 @@ public class StateHolder : MonoBehaviour
     public Observable<float> health;
     public Action onRecharge;
     public Action onRechargeCompleted;
-    public const int MAX_AMMO = 30;
-    public Observable<int> ammoCount = new Observable<int> { Value = MAX_AMMO };
+    public const int CLIP_CAPACITY = 30;
+    
+    public Observable<int> clipAmmo = new Observable<int> { Value = CLIP_CAPACITY };
+    public Observable<int> ammoCount = new Observable<int> {  };
 }

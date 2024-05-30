@@ -27,6 +27,7 @@ public class PlayerInputController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.R))
         {
+            if (_stateHolder.ammoCount.Value == 0) return;
             _stateHolder.onRecharge?.Invoke();
         }
         
@@ -58,7 +59,7 @@ public class PlayerInputController : MonoBehaviour
         
         if (Input.GetMouseButton(0))
         {
-            if (_stateHolder.ammoCount.Value == 0) return;
+            if (_stateHolder.clipAmmo.Value == 0) return;
             _stateHolder.movementState.SetValue(State.Shot);
             return;
         }

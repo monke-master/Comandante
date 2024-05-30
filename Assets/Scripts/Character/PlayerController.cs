@@ -27,9 +27,11 @@ public class PlayerController : MonoBehaviour
 
     private void Health_OnChangedValues(float _, float health)
     {
-        if (health == 0)
+        Debug.Log(health);
+        if (health <= 0)
         {
             _stateHolder.movementState.SetValue(State.Dead);
+            enabled = false;
         }
     }
 

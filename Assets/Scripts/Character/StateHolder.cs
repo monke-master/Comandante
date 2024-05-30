@@ -16,9 +16,14 @@ public class StateHolder : MonoBehaviour
 
     public int direction = 1;
 
-    public Observable<float> health;
+    public int MAX_HEALTH = 100;
+
+    public Observable<float> health = new Observable<float>();
+    
     public Action onRecharge;
+    
     public Action onRechargeCompleted;
+    
     public const int CLIP_CAPACITY = 30;
     
     public Observable<int> clipAmmo = new Observable<int> { Value = CLIP_CAPACITY };

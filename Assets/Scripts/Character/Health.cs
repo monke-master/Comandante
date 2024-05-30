@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
-    
     private StateHolder _stateHolder;
 
     private void Awake()
     {
         _stateHolder = GetComponent<StateHolder>();
-        _stateHolder.health.SetValue(maxHealth);
     }
 
     public void Damage(float damage)
@@ -22,6 +19,6 @@ public class Health : MonoBehaviour
 
     public void Heal(float heal)
     {
-        _stateHolder.health.SetValue(Math.Max(_stateHolder.health.Value + heal, maxHealth));
+        _stateHolder.health.SetValue(Math.Min(_stateHolder.health.Value + heal, _stateHolder.MAX_HEALTH));
     }
 }

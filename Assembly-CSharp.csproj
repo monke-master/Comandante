@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovementController.cs" />
      <Compile Include="Assets\Scripts\Items\PickableAmmo.cs" />
+     <Compile Include="Assets\Scripts\Items\PickableHealth.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Enemy" />
      <Folder Include="Assets\Scripts\UnityObservables" />

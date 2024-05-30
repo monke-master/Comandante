@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -120,7 +120,7 @@ TextureImporter:
       name: Dead_0
       rect:
         serializedVersion: 2
-        x: 40
+        x: 41
         y: 0
         width: 63
         height: 60
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 600c854a56e714772af0c14bd656ed06
-      internalID: 909986628
+      spriteID: 277e22803c60520488196de2c3e7b175
+      internalID: -2036145435
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
       name: Dead_1
       rect:
         serializedVersion: 2
-        x: 161
+        x: 160
         y: 0
         width: 63
         height: 62
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cfea0634095c4dccad9f7c1c308391d
-      internalID: -151862972
+      spriteID: 3f50545004c955540a5582575e304fb3
+      internalID: 272686698
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc3ceddc5ed1482585e49a666c69ad4
-      internalID: -499684715
+      spriteID: d3cd3b7900fde514399469823ddba034
+      internalID: 1907550989
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7be264d6593bf4dceb157f05a14e956f
-      internalID: 448940034
+      spriteID: ef149e40dddf38e41ab909860585735d
+      internalID: -2005930730
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dead_1: -151862972
-      Dead_3: 448940034
-      Dead_0: 909986628
-      Dead_2: -499684715
+      Dead_1: 272686698
+      Dead_3: -2005930730
+      Dead_0: -2036145435
+      Dead_2: 1907550989
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

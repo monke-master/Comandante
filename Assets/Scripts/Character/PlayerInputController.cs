@@ -24,11 +24,26 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
+        
+        if (Input.GetMouseButton(0))
+        {
+            if (_stateHolder.clipAmmo.Value == 0) return;
+            _stateHolder.movementState.SetValue(State.Aim);
+            _stateHolder.movementState.SetValue(State.Shot);
+            return;
+        }
+        
+        if (Input.GetMouseButton(1))
+        {
+            _stateHolder.movementState.SetValue(State.Aim);
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             onPause.Invoke();
         }
-        var boost = 1f;
+        
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
         
@@ -64,18 +79,7 @@ public class PlayerInputController : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButton(0))
-        {
-            if (_stateHolder.clipAmmo.Value == 0) return;
-            _stateHolder.movementState.SetValue(State.Shot);
-            return;
-        }
-
         
-        if (Input.GetMouseButton(1))
-        {
-            _stateHolder.movementState.SetValue(State.Aim);
-        }
         
     }
     

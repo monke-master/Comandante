@@ -7,7 +7,7 @@ public class PlayerAnimatorController : MonoBehaviour
 {
     private StateHolder _stateHolder;
     private Animator _animator;
-    private String _previousState;
+    private String _previousState = "";
     
     private void Awake()
     {
@@ -29,7 +29,10 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         // Debug.Log(_stateHolder.movementState.Value);
         var state = _stateHolder.movementState.Value; 
-        _animator.SetBool(_previousState, false);
+        if (_previousState.Length > 0)
+        {
+            _animator.SetBool(_previousState, false);
+        }
         switch (state)
         {
             case State.Walk:

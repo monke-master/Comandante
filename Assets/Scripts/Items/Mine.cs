@@ -13,8 +13,8 @@ public class Mine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Health>().Damage(10000);
             other.GetComponent<Rigidbody2D>().AddForce(Vector2.up*explosionPower);
+            other.GetComponent<Health>().Damage(10000);
             animator.enabled = true;
             Destroy(transform.Find("Mine").gameObject);
         }

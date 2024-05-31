@@ -6,13 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private string targetTag;
-    [SerializeField] private float damage;
-
-    private IEnumerator DestroyCoroutine()
-    {
-        yield return new WaitForSeconds(30);
-        Destroy(gameObject);
-    }
+    [SerializeField] private float damage;  
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +15,6 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Health>().Damage(damage);
         }
-
-        StartCoroutine(DestroyCoroutine());
+        Destroy(gameObject);
     }
 }

@@ -63,6 +63,10 @@
      <Compile Include="Assets\Scripts\Character\CharacterMovementController.cs" />
      <Compile Include="Assets\Scripts\Character\Attack.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\AttackController.cs" />
+     <Compile Include="Assets\Scripts\Level\Finish.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelController.cs" />
+     <Compile Include="Assets\Scripts\Level\VictoryUIController.cs" />
+     <Compile Include="Assets\Scripts\Level\DefeatUIController1.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Enemy" />
      <Folder Include="Assets\Scripts\UnityObservables" />
@@ -72,6 +76,7 @@
      <Folder Include="Assets\Animations\Traps" />
      <Folder Include="Assets\Scripts\Character" />
      <Folder Include="Assets\Scripts\UnityObservables\Example" />
+     <Folder Include="Assets\Scripts\Level" />
      <Folder Include="Assets\Scripts\Items" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Sprites\Traps" />

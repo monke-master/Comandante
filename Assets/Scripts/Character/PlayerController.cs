@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             _stateHolder.movementState.SetValue(State.Dead);
+            GetComponent<PlayerInputController>().enabled = false;
             enabled = false;
+            LevelController.OnDefeat();
         }
     }
 

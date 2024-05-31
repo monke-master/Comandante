@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float stopFollowingDistance = 100f;
     [SerializeField] private float distanceToShot = 20f;
     [SerializeField] private float distanceToAttack = 1f;
+    [SerializeField] private int points = 100;
     
     
     private Rigidbody2D _rigidbody;
@@ -51,6 +52,7 @@ public class EnemyController : MonoBehaviour
                 _stateHolder.movementState.SetValue(State.Dead);
                 enabled = false;
                 _rigidbody.simulated = false;        
+                LevelController.AddPoints(points);
             }
         };
     }

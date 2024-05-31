@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +12,6 @@ public class VictoryUIController : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("Scenes/MenuScene");
+        LevelController.ToMenu();
     }
-
 }

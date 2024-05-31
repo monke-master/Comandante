@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 
 public class PlayerInputController : MonoBehaviour
 {
+    public Action onPause;
+    
     private CharacterMovementController _movementController;
     private StateHolder _stateHolder;
     private StateHolder.ObservableState _movementState;
@@ -21,6 +24,10 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            onPause.Invoke();
+        }
         var boost = 1f;
         var direction = Input.GetAxis("Horizontal");
         var axisDirection = Input.GetAxisRaw("Horizontal");
@@ -71,7 +78,5 @@ public class PlayerInputController : MonoBehaviour
         }
         
     }
-
-
     
 }

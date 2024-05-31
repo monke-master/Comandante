@@ -27,7 +27,7 @@ public class PlayerAnimatorController : MonoBehaviour
 
     private void OnMovementStateChanged()
     {
-        Debug.Log(_stateHolder.movementState.Value);
+        // Debug.Log(_stateHolder.movementState.Value);
         var state = _stateHolder.movementState.Value; 
         _animator.SetBool(_previousState, false);
         switch (state)

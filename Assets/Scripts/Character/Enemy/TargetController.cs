@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class TargetController : MonoBehaviour
 {
 
     [SerializeField] private float _targetDistance = 10f;
     [SerializeField] private LayerMask _targetLayerMask;
-    
     
     private EnemyController _enemyController;
     private StateHolder _stateHolder;
@@ -30,7 +27,7 @@ public class TargetController : MonoBehaviour
             direction * _targetDistance, Color.red);
         if (hit.collider != null)
         {
-            Debug.Log("Goooooooool");
+            // Debug.Log("Goooooooool");
             _enemyController.Follow(hit.transform);
         }
     }

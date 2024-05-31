@@ -42,5 +42,15 @@ public class LevelController : MonoBehaviour
     {
         playerPoints.SetValue(playerPoints.Value + points);
     }
+
+    public static void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     
+    public static void ToMenu()
+    {
+        SceneManager.LoadScene("Scenes/MenuScene");
+    }
+
 }

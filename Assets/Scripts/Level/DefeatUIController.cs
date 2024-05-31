@@ -15,12 +15,12 @@ public class DefeatUIController : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("Scenes/MenuScene");
+        LevelController.ToMenu();
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("Scenes/Level1");
+        LevelController.RestartLevel();
     }
 
 }

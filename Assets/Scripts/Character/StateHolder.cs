@@ -28,4 +28,6 @@ public class StateHolder : MonoBehaviour
     
     public Observable<int> clipAmmo = new Observable<int> { Value = CLIP_CAPACITY };
     public Observable<int> ammoCount = new Observable<int> {  };
+
+    public Action onAttack;
 }

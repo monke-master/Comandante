@@ -45,11 +45,14 @@
      <Compile Include="Assets\Scripts\Character\State.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerInputController.cs" />
      <Compile Include="Assets\Scripts\Character\UIController.cs" />
+     <Compile Include="Assets\Scripts\Items\PickableAmmo.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Observable.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableBase.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\ObservableEffect.cs" />
      <Compile Include="Assets\Scripts\Character\StateHolder.cs" />
+     <Compile Include="Assets\Scripts\Items\PickableHealth.cs" />
+     <Compile Include="Assets\Scripts\Items\Mine.cs" />
      <Compile Include="Assets\Scripts\Character\AmmoController.cs" />
      <Compile Include="Assets\Scripts\UnityObservables\Example\ExampleObservable.cs" />
      <Compile Include="Assets\Scripts\Character\Health.cs" />
@@ -58,9 +61,8 @@
      <Compile Include="Assets\Scripts\Character\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovementController.cs" />
-     <Compile Include="Assets\Scripts\Items\PickableAmmo.cs" />
-     <Compile Include="Assets\Scripts\Items\PickableHealth.cs" />
-     <Compile Include="Assets\Scripts\Items\Mine.cs" />
+     <Compile Include="Assets\Scripts\Character\Attack.cs" />
+     <Compile Include="Assets\Scripts\Character\Enemy\AttackController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Enemy" />
      <Folder Include="Assets\Scripts\UnityObservables" />

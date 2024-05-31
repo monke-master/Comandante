@@ -26,7 +26,6 @@ public class TargetController : MonoBehaviour
         Debug.DrawRay(transform.position, direction * _targetDistance);
         if (hit.collider != null)
         {
-            Debug.Log("ГООООООООЛ");
             _enemyController.Follow(hit.transform);
         }
     }

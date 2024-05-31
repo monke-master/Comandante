@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float timeToRevert;
     [SerializeField] private float stopFollowingDistance = 100f;
     [SerializeField] private float distanceToShot = 20f;
+    [SerializeField] private float distanceToAttack = 1f;
     
     
     private Rigidbody2D _rigidbody;
@@ -132,7 +133,14 @@ public class EnemyController : MonoBehaviour
             Rotate();
         }
 
-        if (distance <= distanceToShot)
+        
+
+        if (distance <= distanceToAttack)
+        {
+            _stateHolder.movementState.SetValue(State.Idle);
+            _stateHolder.onAttack.Invoke();
+        } 
+        else if (distance <= distanceToShot)
         {
             _currentSpeed = 0;
             _stateHolder.movementState.SetValue(State.Aim);

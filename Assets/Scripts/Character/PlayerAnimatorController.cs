@@ -19,6 +19,10 @@ public class PlayerAnimatorController : MonoBehaviour
         {
             _animator.SetTrigger("Recharge");
         };
+        _stateHolder.onAttack += () =>
+        {
+            _animator.SetTrigger("Attack");
+        };
     }
 
     private void OnMovementStateChanged()
